@@ -19,7 +19,7 @@ CREATE TABLE `users` (
   `user_id` varchar(100) NOT NULL,
   `display_name` varchar(100) NOT NULL,
   `line_id` varchar(50) DEFAULT NULL,
-  `number` int(3) NOT NULL DEFAULT '0'
+  `state` int(3) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `users`
@@ -28,9 +28,9 @@ ALTER TABLE `users`
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
-CREATE TABLE `level` (
+CREATE TABLE  `level` (
   `id` int(11) NOT NULL,
-  `user_id` int(3) NOT NULL DEFAULT '0',
+  `user_id` varchar(100) NOT NULL,
   `penjumlahan` int(3) NOT NULL DEFAULT '1',
   `pengurangan` int(3) NOT NULL DEFAULT '1',
   `perkalian` int(3) NOT NULL DEFAULT '1',
@@ -45,7 +45,7 @@ ALTER TABLE `level`
 
 CREATE TABLE `log` (
   `id` int(11) NOT NULL,
-  `user_id` int(3) NOT NULL DEFAULT '0',
+  `user_id` varchar(100) NOT NULL,
   `session` int(3) NOT NULL DEFAULT '1',
   `penjumlahan_answer` int(3) NOT NULL DEFAULT '0',
   `penjumlahan_counter` int(3) NOT NULL DEFAULT '0',
@@ -57,8 +57,8 @@ CREATE TABLE `log` (
   `pembagian_counter` int(3) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `question_log`
+ALTER TABLE `log`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `question_log`
+ALTER TABLE `log`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
